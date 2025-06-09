@@ -31,3 +31,120 @@ console.log(result); // Output: [0, 1]
 
 * Time complexity is **O(n²)** because of the two loops checking pairs.
 * Space complexity is **O(1)** because we only use a few variables, no extra data structures.
+
+
+
+# Remove Duplicates from Sorted Array
+
+This function takes a sorted array and removes all the duplicate numbers from it. It returns the new length of the array without duplicates, and you can see the updated array with unique numbers.
+
+* It uses a pointer `i` to keep track of the position of unique numbers.
+* It loops through the array and whenever it finds a new number different from the last unique one, it moves that number forward.
+* At the end, it returns the count of unique numbers.
+
+Code example
+
+```js
+function removeDuplicates(nums) {
+    let i = 0;
+    for (let n of nums)
+        if (n !== nums[i]) nums[++i] = n;
+    return nums.length ? i + 1 : 0;
+}
+
+// Example:
+let nums = [1, 1, 2, 2, 3, 4];
+let newLength = removeDuplicates(nums);
+console.log(newLength); // Output: 4
+console.log(nums.slice(0, newLength)); // Output: [1, 2, 3, 4]
+```
+
+## Time and Space Complexity
+
+* Time complexity: **O(n)**, since it goes through the array once.
+* Space complexity: **O(1)** because it doesn’t use extra space, just modifies the array in place.
+
+
+**Find Max and Min in an Array**
+
+```js
+function findMaxMin(arr) {
+  return { max: Math.max(...arr), min: Math.min(...arr) }; // ...arr spreads the array elements as arguments to Math.max and Math.min
+}
+
+// Example usage:
+const numbers = [3, 5, 1, 8, 2];
+const { max, min } = findMaxMin(numbers);
+console.log("Max:", max); // Output: Max: 8
+console.log("Min:", min); // Output: Min: 1
+```
+
+* I used `Math.max` and `Math.min` to get the highest and lowest values.
+* The `...arr` spreads the array values like separate inputs to these functions.
+* So it’s easy and clean!
+
+* **Time:** O(n) – because it checks each number once.
+* **Space:** O(1) – no extra array or data used.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
