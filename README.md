@@ -5,9 +5,9 @@ Two Sum Problem
 
 This is a simple JavaScript function that finds two numbers in an array that add up to a target number. It returns the indices of those two numbers.
 
-* It looks at each number in the array.
-* Then it checks all the numbers after it to see if any two add up to the target.
-* Once it finds a pair that adds up to the target, it returns their positions (indexes).
+It looks at each number in the array.
+Then it checks all the numbers after it to see if any two add up to the target.
+Once it finds a pair that adds up to the target, it returns their positions (indexes).
 
 Code example
 
@@ -29,18 +29,18 @@ console.log(result); // Output: [0, 1]
 
 ## Time and Space Complexity
 
-* Time complexity is **O(n²)** because of the two loops checking pairs.
-* Space complexity is **O(1)** because we only use a few variables, no extra data structures.
+Time complexity is O(n²) because of the two loops checking pairs.
+Space complexity is O(1) because we only use a few variables, no extra data structures.
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Remove Duplicates from Sorted Array
 
 This function takes a sorted array and removes all the duplicate numbers from it. It returns the new length of the array without duplicates, and you can see the updated array with unique numbers.
 
-* It uses a pointer `i` to keep track of the position of unique numbers.
-* It loops through the array and whenever it finds a new number different from the last unique one, it moves that number forward.
-* At the end, it returns the count of unique numbers.
+It uses a pointer `i` to keep track of the position of unique numbers.
+It loops through the array and whenever it finds a new number different from the last unique one, it moves that number forward.
+At the end, it returns the count of unique numbers.
 
 Code example
 
@@ -61,9 +61,10 @@ console.log(nums.slice(0, newLength)); // Output: [1, 2, 3, 4]
 
 ## Time and Space Complexity
 
-* Time complexity: **O(n)**, since it goes through the array once.
-* Space complexity: **O(1)** because it doesn’t use extra space, just modifies the array in place.
+Time complexity: **O(n)**, since it goes through the array once.
+Space complexity: **O(1)** because it doesn’t use extra space, just modifies the array in place.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Find Max and Min in an Array**
 
@@ -78,13 +79,64 @@ const { max, min } = findMaxMin(numbers);
 console.log("Max:", max); // Output: Max: 8
 console.log("Min:", min); // Output: Min: 1
 ```
+I used `Math.max` and `Math.min` to get the highest and lowest values.
+The `...arr` spreads the array values like separate inputs to these functions.
+So it’s easy and clean!
 
-* I used `Math.max` and `Math.min` to get the highest and lowest values.
-* The `...arr` spreads the array values like separate inputs to these functions.
-* So it’s easy and clean!
+Time: O(n) – because it checks each number once.
+Space: O(1) – no extra array or data used.
 
-* **Time:** O(n) – because it checks each number once.
-* **Space:** O(1) – no extra array or data used.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**Reverse an Array (In-place)**
+
+```javascript
+function reverseArray(arr) {
+  return arr.slice().reverse();
+}
+// Example usage:
+const numbers = [1, 2, 3, 4, 5];
+const reversed = reverseArray(numbers);
+console.log(reversed); // Output: [5, 4, 3, 2, 1]
+```
+
+Used `slice()` to make a copy so the original array stays safe.
+Then applied `.reverse()` to flip the copied array.
+Simple and works perfectly!
+
+Time & Space Complexity
+
+Time:O(n) – it looks at each element once.
+Space: O(n) – because of the `.slice()` copy.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+**Rotate an Array by K Positions (Right Rotation)**
+
+```js
+function rotateArray(nums, k) {
+  k = k % nums.length;
+  const moved = nums.splice(-k);
+  nums.unshift(...moved);
+}
+// Example usage:
+const arr = [1, 2, 3, 4, 5, 6, 7];
+const k = 3;
+rotateArray(arr, k);
+console.log(arr); // Output: [5, 6, 7, 1, 2, 3, 4]
+```
+
+First, `k % nums.length` makes sure `k` isn’t bigger than the array.
+`splice(-k)` grabs the last `k` elements.
+Then `unshift(...moved)` pushes them to the front.
+
+Time & Space Complexity
+
+Time: O(n) – because of `splice` and `unshift`.
+Space: O(k) – temporary array of `k` elements created.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
